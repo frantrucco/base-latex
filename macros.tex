@@ -1,0 +1,122 @@
+% commands for the future database
+
+\newcommand{\concept}{\emph}
+\newcommand{\reads}[1]{"#1"}
+
+% Nice renamings of standard things
+
+\newcommand{\compose}{\circ}
+
+\newcommand{\andd}{\wedge}
+\newcommand{\orr}{\vee}
+\newcommand{\impliess}{\rightarrow}
+\newcommand{\ifff}{\leftrightarrow}
+
+\newcommand{\IFF}{\Longleftrightarrow}
+
+\newcommand{\union}{\cup}
+\newcommand{\intersection}{\cap}
+
+\newcommand{\AND}[1]{\bigwedge\limits_{\substack{#1}}}
+\newcommand{\OR}[1]{\bigvee\limits_{\substack{#1}}}
+
+\newcommand{\UNION}[1]{\bigcup\limits_{\substack{#1}}}
+\newcommand{\INTERSECTION}[1]{\bigcap\limits_{\substack{#1}}}
+
+% Definitions, equations
+
+\newcommand{\mydef}{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily
+def}}}{=}}}
+
+\newcommand{\twopartdef}[4]
+{
+	\left\{
+		\begin{array}{ll}
+			#1 & \mbox{if } #2 \\
+			#3 & \mbox{if } #4
+		\end{array}
+	\right.
+}
+
+\newcommand{\threepartdef}[6]
+{
+	\left\{
+		\begin{array}{lll}
+			#1 & \mbox{if } #2 \\
+			#3 & \mbox{if } #4 \\
+			#5 & \mbox{if } #6
+		\end{array}
+	\right.
+}
+
+% Images
+
+\newcommand{\myImage}[1]{
+	\begin{center}
+		\includegraphics[width=0.5\textwidth]{#1}
+	\end{center}
+	}
+
+% Typesetting things
+
+\newcommand{\fancy}{\mathcal}
+
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{corollary}{Corollary}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\newtheorem{remark}{Remark}[chapter]
+\newtheorem{conjecture}{Conjecture}[chapter]
+
+\newtheorem*{counterexample}{Counterexample}
+\newtheorem*{example}{Example}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{assumption}{Assumption}[chapter]
+\newtheorem{notation}{Notation}[chapter]
+
+\DeclarePairedDelimiter{\paren}{(}{)}
+\DeclarePairedDelimiter{\br}{\{}{\}}
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+
+\NewDocumentCommand\SetWithSize{mmg}{%
+    \ensuremath{\br[#1]{ #2 \IfNoValueTF{#3}{}{~|~ #3} }}%
+}
+
+\NewDocumentCommand\Set{mg}{%
+    \ensuremath{\br*{ #1 \IfNoValueTF{#2}{}{~\middle|~ #2} }}%
+}
+
+\NewDocumentCommand\set{mg}{%
+    \ensuremath{\{ #1 \IfNoValueTF{#2}{}{~|~ #2} }\}%
+}
+
+% Backus Naur Form
+\makeatletter
+\newcommand{\BNF}[2]{\begin{equation*}#1 \, \, \Coloneqq \, \, #2\BNFchecknextarg}
+\newcommand{\BNFchecknextarg}{\@ifnextchar\bgroup{\BNFgobblenextarg}{\end{equation*}}}
+\newcommand{\BNFgobblenextarg}[1]{\, \, | \, \, #1\@ifnextchar\bgroup{\BNFgobblenextarg}{\end{equation*}}}
+\makeatother
+
+\newcommand{\modaldiamond}{\diamond}
+\newcommand{\modalbox}{\square}
+
+\newcommand{\Modalbox}[1]{[#1]}
+\newcommand{\Modaldiamond}[1]{\langle #1\rangle}
+
+\newcommand{\ModalBox}[1]{\left[#1\right]}
+\newcommand{\ModalDiamond}[1]{\left\langle #1\right\rangle}
+
+
+\newcommand{\logicK}{\mathsf{K}}
+\newcommand{\logicD}{\mathsf{D}}
+\newcommand{\logicT}{\mathsf{T}}
+\newcommand{\logicB}{\mathsf{B}}
+\newcommand{\logicM}{\mathsf{M}}
+\newcommand{\logicSFour}{\mathsf{S4}}
+\newcommand{\logicSFive}{\mathsf{S5}}
+
+\newcommand{\sep}{~|~}
+
+\newcommand{\TODO}[1]{\textbf{TODO:} #1}

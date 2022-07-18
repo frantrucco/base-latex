@@ -1,0 +1,71 @@
+\usepackage[english]{babel}
+\usepackage[mathcal,mathbf]{euler}
+\usepackage[osf]{mathpazo}
+\usepackage[sort]{cite}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx,sidecap,tikz}
+\usepackage{mathpartir}
+\usepackage{mathtools}
+\usepackage{siunitx} % automatic number formatting, decimal point alignment
+\usepackage{syntax}
+\usepackage{bussproofs}
+\usepackage{forest}
+
+\usepackage[pagebackref=true,
+            colorlinks,
+            citecolor=red,
+            urlcolor=blue,
+            bookmarks=false,
+            hypertexnames=true]{hyperref} 
+
+\nonzeroparskip
+
+% =========================
+% = Setting up the layout =
+% =========================
+
+% With a 9pt body font we want a little extra line spacing (I mean *leading*)
+\setSingleSpace{1.2}
+\SingleSpacing
+
+\setlrmarginsandblock{3.5cm}{2.5cm}{*}
+\setulmarginsandblock{2.5cm}{*}{1}
+\checkandfixthelayout 
+
+% ============================
+% = Table of contents tweaks =
+% ============================
+\renewcommand*{\contentsname}{Table of Contents}
+\setsecnumdepth{subsubsection}
+\settocdepth{subsection}
+
+% ============
+% = Chapters =
+% ============
+\newcommand{\swelledrule}{%
+    \tikz \filldraw[scale=.015,very thin]%
+    (0,0) -- (100,1) -- (200,1) -- (300,0) --%
+    (200,-1) -- (100,-1) -- cycle;}
+\makeatletter
+\makechapterstyle{grady}{%
+    \setlength{\beforechapskip}{0pt}
+    \renewcommand*{\chapnamefont}{\large\centering\scshape}
+    \renewcommand*{\chapnumfont}{\large}
+    \renewcommand*{\printchapternum}{%
+        \chapnumfont \ifanappendix \thechapter \else \numtoName{\c@chapter}\fi}
+    \renewcommand*{\printchapternonum}{%
+        \vphantom{\printchaptername}%
+        \vphantom{\chapnumfont 1}%
+        \afterchapternum
+        \vskip -\onelineskip}
+    \renewcommand*{\chaptitlefont}{\Huge\itshape}
+    \renewcommand*{\printchaptertitle}[1]{%
+        \centering\chaptitlefont ##1\par\swelledrule}}
+\makeatother
+\chapterstyle{grady}
+
+% See below, after introduction, for \clearforchapter
+
+% Prevent page numbers from appearing on chapter pages
+\aliaspagestyle{chapter}{empty}
