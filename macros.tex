@@ -7,8 +7,8 @@
 
 \newcommand{\compose}{\circ}
 
-\newcommand{\andd}{\wedge}
-\newcommand{\orr}{\vee}
+\newcommand{\andd}{\land}
+\newcommand{\orr}{\lor}
 \newcommand{\impliess}{\rightarrow}
 \newcommand{\ifff}{\leftrightarrow}
 
@@ -108,7 +108,6 @@ def}}}{=}}}
 \newcommand{\ModalBox}[1]{\left[#1\right]}
 \newcommand{\ModalDiamond}[1]{\left\langle #1\right\rangle}
 
-
 \newcommand{\logicK}{\mathsf{K}}
 \newcommand{\logicD}{\mathsf{D}}
 \newcommand{\logicT}{\mathsf{T}}
@@ -120,3 +119,83 @@ def}}}{=}}}
 \newcommand{\sep}{~|~}
 
 \newcommand{\TODO}[1]{\textbf{TODO:} #1}
+
+\newcommand{\mySeq}[2]{$#1 \Rightarrow #2$}
+\newcommand{\seq}[2]{#1 \Rightarrow #2}
+
+\newcommand{\UnarySimple}[2]{
+	\UnaryInfC{\mySeq{#1}{#2}}
+	}
+\newcommand{\RightNeg}[2]{
+	\RightLabel{$(\Rightarrow \neg)$}
+	\UnaryInfC{\mySeq{#1}{#2}}
+	}
+\newcommand{\RightAnd}[2]{
+	\RightLabel{$(\Rightarrow \andd)$}
+	\BinaryInfC{\mySeq{#1}{#2}}
+	}
+\newcommand{\RightOrOne}[2]{
+	\RightLabel{$(\Rightarrow \orr ~ 1)$}
+	\UnaryInfC{\mySeq{#1}{#2}}
+	}
+\newcommand{\RightOrTwo}[2]{
+	\RightLabel{$(\Rightarrow \orr ~ 2)$}
+	\UnaryInfC{\mySeq{#1}{#2}}
+	}
+\newcommand{\RightImp}[2]{
+	\RightLabel{$(\Rightarrow \impliess)$}
+	\UnaryInfC{\mySeq{#1}{#2}}
+	}
+\newcommand{\RightE}[2]{
+	\RightLabel{$(\Rightarrow e)$}
+	\UnaryInfC{\mySeq{#1}{#2}}
+	}
+\newcommand{\RightW}[2]{
+	\RightLabel{$(\Rightarrow w)$}
+	\UnaryInfC{\mySeq{#1}{#2}}
+	}
+\newcommand{\RightC}[2]{
+	\RightLabel{$(\Rightarrow c)$}
+	\UnaryInfC{\mySeq{#1}{#2}}
+	}
+\newcommand{\LeftNeg}[2]{
+	\RightLabel{$(\neg \Rightarrow)$}
+	\UnaryInfC{\mySeq{#1}{#2}}
+	}
+\newcommand{\LeftAndOne}[2]{
+	\RightLabel{$(\andd ~ 1 \Rightarrow)$}
+	\UnaryInfC{\mySeq{#1}{#2}}
+	}
+\newcommand{\LeftAndTwo}[2]{
+	\RightLabel{$(\andd ~ 2 \Rightarrow)$}
+	\UnaryInfC{\mySeq{#1}{#2}}
+	}
+\newcommand{\LeftOr}[2]{
+	\RightLabel{$(\orr \Rightarrow)$}
+	\BinaryInfC{\mySeq{#1}{#2}}
+	}
+\newcommand{\LeftImp}[2]{
+	\RightLabel{$(\impliess \Rightarrow)$}
+	\BinaryInfC{\mySeq{#1}{#2}}
+	}
+\newcommand{\LeftE}[2]{
+	\RightLabel{$(e \Rightarrow)$}
+	\UnaryInfC{\mySeq{#1}{#2}}
+	}
+\newcommand{\LeftW}[2]{
+	\RightLabel{$(w \Rightarrow)$}
+	\UnaryInfC{\mySeq{#1}{#2}}
+	}
+\newcommand{\LeftC}[2]{
+	\RightLabel{$(c \Rightarrow)$}
+	\UnaryInfC{\mySeq{#1}{#2}}
+	}
+\newcommand{\Cut}[2]{
+	\RightLabel{$(cut)$}
+	\BinaryInfC{\mySeq{#1}{#2}}
+	}
+\newcommand{\MyAxiom}[2]{
+	\AxiomC{\mySeq{#1}{#2}}
+}
+
+\newcommand{\LK}{\textbf{LK}}

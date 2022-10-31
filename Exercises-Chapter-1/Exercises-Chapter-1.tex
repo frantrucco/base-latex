@@ -1,0 +1,248 @@
+\section*{Exercise 1.1.1}
+
+\begin{prooftree}
+    \MyAxiom{\alpha}{\alpha}
+    \LeftW{\alpha ,\, \beta}{\alpha}
+    \RightImp{\alpha}{\beta \impliess \alpha}
+    \RightImp{}{\alpha \impliess (\beta \impliess \alpha)}
+\end{prooftree}
+
+\section*{Exercise 1.1.2}
+
+\begin{prooftree}
+        \MyAxiom{\alpha}{\alpha}
+            \MyAxiom{\alpha}{\alpha}
+                \MyAxiom{\beta}{\beta}
+                \MyAxiom{\gamma}{\gamma}
+            \LeftImp{\beta ,\, \beta \impliess \gamma}
+                    {\gamma}
+        \LeftImp{\beta \impliess \gamma ,\,
+                 \alpha \impliess \beta ,\,
+                 \alpha}{\gamma}
+    \LeftImp{\alpha \impliess (\beta \impliess \gamma) ,\,
+             \alpha \impliess \beta ,\,
+             \alpha ,\,
+             \alpha}
+            {\gamma}
+    \LeftC{\alpha \impliess (\beta \impliess \gamma) ,\,
+           \alpha \impliess \beta ,\,
+           \alpha}
+          {\gamma}
+    \RightImp{\alpha \impliess (\beta \impliess \gamma) ,\,
+              \alpha \impliess \beta}
+             {\alpha \impliess \gamma}
+    \RightImp{\alpha \impliess (\beta \impliess \gamma)}
+             {(\alpha \impliess \beta) \impliess (\alpha \impliess \gamma)}
+\end{prooftree}
+
+\section*{Exercise 1.2.1}
+
+\begin{prooftree}
+    \MyAxiom{\alpha}{\alpha}
+    \RightNeg{}{
+        \alpha ,\,
+        \neg \alpha}
+    \RightOrTwo{}{
+        \alpha ,\,
+        \alpha \orr \neg \alpha}
+    \RightOrOne{}{
+        \alpha \orr \neg \alpha ,\,
+        \alpha \orr \neg \alpha}
+    \RightC{}{\alpha \orr \neg \alpha}
+\end{prooftree}
+
+\section*{Exercise 1.2.2}
+
+\begin{prooftree}
+            \MyAxiom{\alpha}{\alpha}
+        \LeftW{\alpha ,\, \beta}{\alpha}
+            \MyAxiom{\beta}{\beta}
+        \LeftW{\alpha ,\, \beta}{\beta}
+    \RightAnd{\alpha ,\, \beta}{\alpha \andd \beta}
+    \LeftNeg{\alpha ,\, \beta ,\, \neg (\alpha \andd \beta)}{}
+    \RightNeg{\beta ,\, \neg (\alpha \andd \beta)}{\neg \alpha}
+    \RightNeg{\neg (\alpha \andd \beta)}{\neg \alpha ,\, \neg \beta}
+    \RightOrOne{\neg (\alpha \andd \beta)}{\neg \alpha \orr \neg \beta ,\, \neg \beta}
+    \RightOrTwo{\neg (\alpha \andd \beta)}{\neg \alpha \orr \neg \beta ,\, \neg \alpha \orr \neg \beta}
+    \RightC{\neg (\alpha \andd \beta)}{\neg \alpha \orr \neg \beta}
+\end{prooftree}
+
+\section*{Exercise 1.2.3}
+
+\begin{prooftree}
+        \MyAxiom{\alpha}{\alpha}
+        \RightW{\alpha}{\beta ,\, \alpha}
+        \RightImp{}{\alpha \impliess \beta ,\, \alpha}
+        \MyAxiom{\alpha}{\alpha}
+        \LeftImp{(\alpha \impliess \beta) \impliess \alpha}{\alpha ,\, \alpha}
+        \RightC{(\alpha \impliess \beta) \impliess \alpha}{\alpha}
+\end{prooftree}
+
+\section*{Exercise 1.3}
+
+\begin{lemma}
+    The following propositions are equivalent:
+    \begin{enumerate}
+        \item[(a)] The sequent $\seq{\alpha_1, \alpha_2}{\beta_1, \beta_2}$  is
+        provable in $\LK$.
+        \item[(b)] The sequent $\seq{\alpha_1 \andd \alpha_2}{\beta_1 \orr
+        \beta_2}$ is provable in $\LK$.
+        \item[(c)] The sequent $\seq{}{\alpha_1 \andd \alpha_2 \impliess \beta_1
+        \orr \beta_2}$ is provable in $\LK$.
+    \end{enumerate}
+    
+\end{lemma}
+
+\begin{proof}
+    Now we will show that (a) implies (b). Assume that $\seq{\alpha_1,
+    \alpha_2}{\beta, \beta_2}$ is provable in $\LK$. Then there exists a proof
+    for the sequent. Using this proof, we can construct the following proof of
+    $\seq{\alpha_1 \andd \alpha_2}{\beta \orr \beta_2}$:
+    
+\begin{prooftree}
+    \MyAxiom{\alpha_1 ,\, \alpha_2}{\beta_1 ,\, \beta_2}
+    \LeftAndTwo{\alpha_1 ,\, \alpha_1 \andd \alpha_2}{\beta_1 ,\, \beta_2}
+    \LeftAndOne{\alpha_1 \andd \alpha_2 ,\, \alpha_1 \andd \alpha_2}{\beta_1 ,\, \beta_2}
+    \LeftC{\alpha_1 \andd \alpha_2}{\beta_1 ,\, \beta_2}
+    \RightOrTwo{\alpha_1 \andd \alpha_2}{\beta_1 ,\, \beta_1 \orr \beta_2}
+    \RightOrOne{\alpha_1 \andd \alpha_2}{\beta_1 \orr \beta_2 ,\, \beta_1 \orr \beta_2}
+    \RightC{\alpha_1 \andd \alpha_2}{\beta_1 \orr \beta_2}
+\end{prooftree}
+
+    If we replace the leaf containing the sequent $\seq{\alpha_1,
+    \alpha_2}{\beta, \beta_2}$ with the proof of this same sequent, we obtain a
+    valid proof of $\seq{\alpha_1 \andd \alpha_2}{\beta \orr \beta_2}$.
+
+    Now we will show that (b) implies (c). Similarly as before. Assume that
+    $\seq{\alpha_1 \andd \alpha_2}{\beta \orr \beta_2}$ is provable in $\LK$.
+    Then there exists a proof for the sequent. Using this proof, we can
+    construct the following proof of $\seq{\alpha_1  \alpha_2}{\beta \orr
+    \beta_2}$:
+
+\end{proof}
+
+\section*{Exercise 1.4}
+If we accept this generalized cut rule we can obtain, for example, a proof for
+the empty sequent $\seq{}{}$:
+
+\begin{prooftree}
+            \MyAxiom{\alpha}{\alpha}
+        \RightNeg{}{\alpha ,\, \neg \alpha}
+            \MyAxiom{\alpha}{\alpha}
+        \LeftNeg{\alpha ,\, \neg \alpha}{}
+        \Cut{}{}
+\end{prooftree}
+
+But this should not be possible, as the interpretation of the empty sequent
+$\seq{}{}$ is that "a contradiction follows from no assumptions".
+
+\section*{Exercise 1.5}
+
+As explained in the book, it is enough to show that:
+
+\begin{itemize}
+    \item Every initial sequent is a tautology
+    \item For each rule of $\LK$, if (each of) the upper sequent(s) is a
+    tautology then the lower sequent is a tautology.
+\end{itemize}
+
+The initial sequents are always of the form $\seq{\alpha}{\alpha}$. But this is
+a tautology as the corresponding formula is $\alpha \impliess \alpha$ is a
+tautology. To see this notice that for any $a \in \{0, 1\}$ it is the case that
+$a \impliess a = 1$, and thus for any valuation $h$, it holds that $h(\alpha
+\impliess \alpha) = h(\alpha) \impliess h(\alpha) = 1$.
+
+Now we will prove that for each rule of $\LK$, if each of the upper sequents is
+a tautology then the lower sequent is also a tautology. More precisely, we will
+show that if each of the corresponding formulae of the upper sequents is a
+tautology then the corresponding formula of the lower sequent is a tautology.
+
+Given a multiset of formulae $\Delta$, we will write $\AND{} \Delta$ instead of
+$\AND{\alpha \in \Delta} \alpha$ and $\OR{} \Delta$ instead of $\OR{\alpha \in
+\Delta} \alpha$.
+
+\subsection*{Rule $(\orr \Rightarrow)$}
+Assume that $\alpha \andd \AND{} \Gamma \impliess \OR{} \Pi$ and that $\beta \andd
+\AND{} \Gamma \impliess \OR{} \Pi$ are both tautologies. We will show that
+$(\alpha \orr \beta) \andd \AND{} \Gamma \impliess \OR{} \Pi$ is a tautology.
+
+Let $h$ be an arbitrary valuation. If $h(\OR{} \Pi) = 1$, then:
+\begin{equation*}
+  h((\alpha \orr \beta) \andd \AND{} \Gamma \impliess \OR{} \Pi) = 
+  h((\alpha \orr \beta) \andd \AND{} \Gamma) \impliess h(\OR{} \Pi) = 
+  h((\alpha \orr \beta) \andd \AND{} \Gamma) \impliess 1 = 1
+\end{equation*}
+
+Assume now that $h(\OR{} \Pi) = 0$. Given that the upper sequents are
+tautologies we have that:
+
+\begin{equation*}
+  h((\alpha \andd \AND{} \Gamma \impliess \OR{} \Pi) = 1 = 
+  h((\beta \andd \AND{} \Gamma \impliess \OR{} \Pi)
+\end{equation*}
+
+Using the fact that $h(\OR{} \Pi) = 0$, it is easy to obtain that
+$h(\alpha) = 0$, $h(\beta) = 0$ and that $h(\AND{} \Gamma) = 0$. Then
+$h((\alpha \orr \beta) \andd \AND{} \Gamma) = 0$.
+
+And thus:
+\begin{equation*}
+  h((\alpha \orr \beta) \andd \AND{} \Gamma \impliess \OR{} \Pi) = 
+  h((\alpha \orr \beta) \andd \AND{} \Gamma) \impliess h(\OR{} \Pi) = 
+  0 \impliess h(\OR{} \Pi) = 1
+\end{equation*}
+
+\subsection*{Rule $(cut)$}
+
+Assume that $\alpha \andd \AND{} \Gamma \impliess \OR{} \Pi$ and that $\beta \andd
+\AND{} \Gamma \impliess \OR{} \Pi$ are both tautologies. We will show that
+$(\alpha \orr \beta) \andd \AND{} \Gamma \impliess \OR{} \Pi$ is a tautology.
+
+Let $h$ be an arbitrary valuation. If $h(\OR{} \Pi) = 1$, then:
+\begin{equation*}
+  h((\alpha \orr \beta) \andd \AND{} \Gamma \impliess \OR{} \Pi) = 
+  h((\alpha \orr \beta) \andd \AND{} \Gamma) \impliess h(\OR{} \Pi) = 
+  h((\alpha \orr \beta) \andd \AND{} \Gamma) \impliess 1 = 1
+\end{equation*}
+
+Assume now that $h(\OR{} \Pi) = 0$. Given that the upper sequents are
+tautologies we have that:
+
+\begin{equation*}
+  h((\alpha \andd \AND{} \Gamma \impliess \OR{} \Pi) = 1 = 
+  h((\beta \andd \AND{} \Gamma \impliess \OR{} \Pi)
+\end{equation*}
+
+Using the fact that $h(\OR{} \Pi) = 0$, it is easy to obtain that
+$h(\alpha) = 0$, $h(\beta) = 0$ and that $h(\AND{} \Gamma) = 0$. Then
+$h((\alpha \orr \beta) \andd \AND{} \Gamma) = 0$.
+
+And thus:
+\begin{equation*}
+  h((\alpha \orr \beta) \andd \AND{} \Gamma \impliess \OR{} \Pi) = 
+  h((\alpha \orr \beta) \andd \AND{} \Gamma) \impliess h(\OR{} \Pi) = 
+  0 \impliess h(\OR{} \Pi) = 1
+\end{equation*}
+
+The other rules are similar.
+
+\section*{Exercise 1.6}
+.
+\section*{Exercise 1.7}
+.
+\section*{Exercise 1.8}
+.
+\section*{Exercise 1.9}
+.
+\section*{Exercise 1.10}
+.
+\section*{Exercise 1.11}
+.
+\section*{Exercise 1.12}
+.
+\section*{Exercise 1.13}
+.
+\section*{Exercise 1.14}
+.
+\section*{Exercise 1.15}
+.
